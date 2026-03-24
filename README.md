@@ -122,3 +122,13 @@ while read -r directory events filename; do
     fi
 done
 ```
+
+### 4. Spring app
+    - 설명\
+    spring boot app에서 controller에 return 값을 변환하는 방법을 통해 코드가 수정되는 상황을 만들어준다.
+    - 과정
+    1. spring boot app에서 controller의 return 값을 수정
+    2. 수정된 파일을 jar로 재빌드
+    3. 수정된 jar 파일을 개발 서버(Linux 가상머신)로 전송
+    4. scp (port:2222)를 통해 수정된 jar 파일을 운영 서버로 전송
+    
