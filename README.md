@@ -2,6 +2,14 @@
 > 우리FISA6기 클라우드 엔지니어링 \
 > 리눅스 inotify-tools 실습
 
+## 🧑‍💻 팀원 소개
+
+| <img src="https://avatars.githubusercontent.com/u/181299322?v=4" width="120" height="120" /> | <img src="https://avatars.githubusercontent.com/u/113874212?v=4" width="120" height="120" /> |
+|:---:|:---:|
+| **신성혁**<br>[@ssh221](https://github.com/ssh221) | **사재헌**<br>[@Zaixian5](https://github.com/Zaixian5) |
+| springboot 앱 개발 | bash 스크립트 작성 |
+
+
 ## 1. 프로젝트 목표
 리눅스 VM 두 대를 각각 운영서버, 개발서버로 가정하고 inotify-tools를 활용하여 소프트웨어 업데이트를 배포하는 간이 아키텍처를 구성한다.\
 이를 바탕으로 Jenkins나 Github Action을 활용해보기 전, 가장 기본적인 CI/CD 원리를 이해해 보고자 한다.
@@ -30,7 +38,7 @@
 - **inotify-tools**: 파일 변경(생성, 수정, 삭제) 이벤트를 실시간으로 감지하는 리눅스 전용 툴
 - **scp**: ssh 기반 파일 전송 프로토콜.
 
-### 3. inotify-tools 스크립트
+## 3. inotify-tools 스크립트
 ```bash
 #!/bin/bash
 
@@ -123,7 +131,7 @@ while read -r directory events filename; do
 done
 ```
 
-### 4. Spring app
+## 4. Spring app
     - 설명\
     spring boot app에서 controller에 return 값을 변환하는 방법을 통해 코드가 수정되는 상황을 만들어준다.
     - 과정
@@ -131,4 +139,10 @@ done
     2. 수정된 파일을 jar로 재빌드
     3. 수정된 jar 파일을 개발 서버(Linux 가상머신)로 전송
     4. scp (port:2222)를 통해 수정된 jar 파일을 운영 서버로 전송
-    
+
+## 5. 실습 결과
+- 업데이트 전 스크립트 실행 화면
+![업데이트전](images\inotify-실행-첫화면.png)
+
+- 업데이트 후 스크립트 실행 화면
+![업데이트후](images\업데이트-감지-화면.png)
